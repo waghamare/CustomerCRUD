@@ -13,6 +13,7 @@ public class Customer {
 	private String mob;
 	private String address;
 	private Float total;
+	
 	public Customer() {
 		super();
 	}
