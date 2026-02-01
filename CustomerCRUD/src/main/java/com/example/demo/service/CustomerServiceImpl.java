@@ -19,6 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void add(Customer customer) {
 		// TODO Auto-generated method stub
+		
 		String mob = customer.getMob();
 		System.out.println(mob);
 		mob.trim();
@@ -36,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
 					||mob.charAt(0) == '4' ||mob.charAt(0) == '5')
 				throw new InvalidMobileNumber("Numbar must be start from 6,7,8,9");
 			if(!mob.startsWith("+91")) {
-				throw new InvalidMobileNumber("Mobile number must start with +91");
+				throw new InvalidMobileNumber("Mobile Number must start with +91");
 			}
 			for(int i=0 ; i < mob.length(); i++) {
 				if(!Character.isDigit(mob.charAt(i)))
@@ -46,11 +47,11 @@ public class CustomerServiceImpl implements CustomerService {
 				throw new RuntimeException("Customer ID already exists");
 			}
 			if(!mob.startsWith("91")) {
-				throw new InvalidMobileNumber("After +91 number should start with 91");
+				throw new InvalidMobileNumber("After +91 Number should start with 91");
 			}
 		}
 		else
-			throw new InvalidMobileNumber("After +91 number should be 10 Digit");
+			throw new InvalidMobileNumber("After +91 Number should be 10 Digit");
 		cr.save(customer); //Insert
 		
 	}
