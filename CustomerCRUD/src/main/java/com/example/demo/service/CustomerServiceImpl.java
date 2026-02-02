@@ -22,13 +22,15 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		String mob = customer.getMob();
 		System.out.println(mob);
-		mob.trim();
-		if(mob.startsWith("+91")) {
-			mob=mob.substring(3);
-		}
-		if(mob.startsWith("91"))
-		{
-			mob = mob.substring(3); 
+		if(mob!=null) {
+			mob.trim();
+			if(mob.startsWith("+91")) {
+				mob=mob.substring(3);
+			}
+			if(mob.startsWith("91"))
+			{
+				mob = mob.substring(2); 
+			}
 		}
 		
 		
@@ -36,9 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
 			if(mob.charAt(0) == '0' || mob.charAt(0) == '1' || mob.charAt(0) == '2' || mob.charAt(0) == '3' 
 					||mob.charAt(0) == '4' ||mob.charAt(0) == '5')
 				throw new InvalidMobileNumber("Numbar must be start from 6,7,8,9");
-			if(!mob.startsWith("+91")) {
-				throw new InvalidMobileNumber("Mobile Number must start with +91");
-			}
+			
 			for(int i=0 ; i < mob.length(); i++) {
 				if(!Character.isDigit(mob.charAt(i)))
 					throw new InvalidMobileNumber("Number can't start from #, $, & , etc..");
