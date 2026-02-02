@@ -31,7 +31,7 @@ public class CustomerController {
 	public void addAll(@RequestBody List<Customer> list) {
 		cs.addAll(list);
 	}
-	@GetMapping("display")
+	@GetMapping("/display")
 	public List<Customer> display(){
 		return cs.display();
 	}
